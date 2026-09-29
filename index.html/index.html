@@ -1,0 +1,360 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Agendamento Pet</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="container">
+            <h1>Agendamento Pet</h1>
+            <p>Sistema de agendamento de banho e tosa</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- CADASTRO DO CACHORRO -->
+        <section class="card">
+
+            <h2>Cadastro do cachorro</h2>
+
+            <form id="formCachorro">
+
+                <div class="campo">
+                    <label for="nome">Nome do cachorro</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        required
+                    >
+                </div>
+
+                <div class="linha">
+
+                    <div class="campo">
+                        <label for="idade">Idade</label>
+                        <input
+                            type="number"
+                            id="idade"
+                            min="0"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="peso">Peso (kg)</label>
+                        <input
+                            type="number"
+                            id="peso"
+                            min="0.1"
+                            step="0.1"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="campo">
+                    <label for="raca">Raça</label>
+
+                    <input
+                        type="text"
+                        id="raca"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="tamanho">Tamanho</label>
+
+                    <select id="tamanho" required>
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option value="Pequeno">
+                            Pequeno
+                        </option>
+
+                        <option value="Médio">
+                            Médio
+                        </option>
+
+                        <option value="Grande">
+                            Grande
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="campo">
+
+                    <label for="vacinas">
+                        Vacinas
+                    </label>
+
+                    <textarea
+                        id="vacinas"
+                        rows="3"
+                        placeholder="Informe as vacinas do cachorro."
+                    ></textarea>
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="doencas">
+                        Doenças anteriores
+                    </label>
+
+                    <textarea
+                        id="doencas"
+                        rows="3"
+                        placeholder="Informe doenças anteriores, caso existam."
+                    ></textarea>
+
+                </div>
+
+                <button type="submit">
+                    Cadastrar cachorro
+                </button>
+
+            </form>
+
+            <div id="mensagemCachorro"></div>
+
+        </section>
+
+
+        <!-- AGENDAMENTO -->
+        <section class="card">
+
+            <h2>Agendamento</h2>
+
+            <form id="formAgendamento">
+
+                <div class="campo">
+
+                    <label for="cachorro">
+                        Cachorro
+                    </label>
+
+                    <select
+                        id="cachorro"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione um cachorro
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="linha">
+
+                    <div class="campo">
+
+                        <label for="data">
+                            Data
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data"
+                            required
+                        >
+
+                        <small id="diaSemana"></small>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="horario">
+                            Horário
+                        </label>
+
+                        <select
+                            id="horario"
+                            required
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="08:00">
+                                08:00
+                            </option>
+
+                            <option value="09:00">
+                                09:00
+                            </option>
+
+                            <option value="10:00">
+                                10:00
+                            </option>
+
+                            <option value="11:00">
+                                11:00
+                            </option>
+
+                            <option value="13:00">
+                                13:00
+                            </option>
+
+                            <option value="14:00">
+                                14:00
+                            </option>
+
+                            <option value="15:00">
+                                15:00
+                            </option>
+
+                            <option value="16:00">
+                                16:00
+                            </option>
+
+                            <option value="17:00">
+                                17:00
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="servico">
+                        Serviço
+                    </label>
+
+                    <select
+                        id="servico"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option value="Banho e Tosa">
+                            Banho e Tosa
+                        </option>
+
+                        <option value="Somente Banho">
+                            Somente Banho
+                        </option>
+
+                        <option value="Somente Tosa">
+                            Somente Tosa
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit">
+                    Confirmar agendamento
+                </button>
+
+            </form>
+
+            <div id="mensagemAgendamento"></div>
+
+        </section>
+
+
+        <!-- LISTA DE CACHORROS -->
+        <section class="card">
+
+            <h2>Cachorros cadastrados</h2>
+
+            <div
+                id="listaCachorros"
+                class="lista"
+            ></div>
+
+        </section>
+
+
+        <!-- LISTA DE AGENDAMENTOS -->
+        <section class="card">
+
+            <h2>Agendamentos</h2>
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Cachorro
+                            </th>
+
+                            <th>
+                                Data
+                            </th>
+
+                            <th>
+                                Horário
+                            </th>
+
+                            <th>
+                                Serviço
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Ação
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="listaAgendamentos">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT MODULAR -->
+
+    <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
+```

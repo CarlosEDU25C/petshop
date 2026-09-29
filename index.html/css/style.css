@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f4f5f7;
+
+    color: #222;
+}
+
+
+/* CABEÇALHO */
+
+.cabecalho {
+    background: #243447;
+
+    color: white;
+
+    padding: 30px 0;
+}
+
+.cabecalho h1 {
+    margin: 0 0 8px;
+}
+
+.cabecalho p {
+    margin: 0;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 92%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+
+/* CARD */
+
+.card {
+    background: white;
+
+    margin: 25px 0;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+
+    color: #243447;
+}
+
+
+/* FORMULÁRIOS */
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.linha {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+}
+
+label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border:
+        1px solid #bbb;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* BOTÕES */
+
+button {
+
+    border: none;
+
+    border-radius: 5px;
+
+    padding:
+        12px 18px;
+
+    background: #243447;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+button:hover {
+    background: #182532;
+}
+
+
+/* MENSAGENS */
+
+.mensagem {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    display: none;
+}
+
+.mensagem.sucesso {
+
+    display: block;
+
+    background: #dff2e1;
+
+    color: #245b2a;
+}
+
+.mensagem.erro {
+
+    display: block;
+
+    background: #f8dddd;
+
+    color: #7a1d1d;
+}
+
+
+/* DIA DA SEMANA */
+
+#diaSemana {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #555;
+}
+
+
+/* LISTA */
+
+.lista {
+    display: grid;
+
+    gap: 12px;
+}
+
+.item-cachorro {
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 6px;
+
+    padding: 15px;
+}
+
+.item-cachorro h3 {
+    margin-top: 0;
+}
+
+
+/* TABELA */
+
+.tabela-container {
+    overflow-x: auto;
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+
+    padding: 11px;
+
+    border-bottom:
+        1px solid #ddd;
+
+    text-align: left;
+}
+
+th {
+
+    background: #f0f1f3;
+}
+
+
+/* BOTÃO CANCELAR */
+
+.botao-cancelar {
+
+    background: #8b2d2d;
+
+    padding:
+        7px 10px;
+}
+
+.botao-cancelar:hover {
+
+    background: #6d2020;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+
+    .linha {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .card {
+
+        padding: 18px;
+    }
+
+    table {
+
+        min-width:
+            700px;
+    }
+}
